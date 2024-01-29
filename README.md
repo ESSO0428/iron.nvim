@@ -34,6 +34,10 @@ local iron = require("iron.core")
 
 iron.setup {
   config = {
+    -- When set to true, the REPL environment will be executed in the working directory of the current file. 
+    -- This means that any relative paths in the code will be relative to the file's directory, not the Neovim's starting directory.
+    -- (suggest set true) This enhances file-specific operations, ensuring scripts run in their intended context.
+    execute_repl_with_workspace = false,
     -- Whether a repl should be discarded or not
     scratch_repl = true,
     -- Your repl definitions come here
@@ -235,6 +239,23 @@ repl_open_cmd = view.offset{
     return 42
   end,
   h_offset = view.helpers.flip(2)
+}
+```
+
+## New Features in iron.nvim
+
+`execute_repl_with_workspace`
+
+In my continuous effort to enhance iron.nvim, I've introduced a new configuration option: execute_repl_with_workspace. This feature enhances the REPL environment by executing it in the working directory of the current file. This means any relative paths in your code will be relative to the file's directory. It's a significant enhancement for file-specific operations, ensuring scripts run in their intended context. Setting this option to true is recommended for a more intuitive and context-aware REPL experience.
+
+To enable this feature, simply update your iron configuration:
+```lua
+iron.setup {
+  config = {
+    execute_repl_with_workspace = true,
+    -- ... other configuration options ...
+  },
+  -- ... rest of the setup ...
 }
 ```
 
