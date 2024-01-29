@@ -17,12 +17,12 @@ It both a plugin and a library, allowing for better user experience and extensib
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim) (or the plugin manager of your choice):
 
 ```lua
-  use {'Vigemus/iron.nvim'}
+  use {'ESSO0428/iron.nvim'}
 ```
 
 As of version 3.0, Iron uses milestones and tags to manage releases. If you want to use the stable versions, use the following:
 ```lua
-  use {'Vigemus/iron.nvim', tag = "<most recent tag>"}
+  use {'ESSO0428/iron.nvim', tag = "<most recent tag>"}
 ```
 
 ## How to configure
