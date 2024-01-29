@@ -83,6 +83,15 @@ ll.create_repl_on_current_window = function(ft, repl, bufnr, current_bufnr, opts
     }
     cmd = repl.command(meta)
   end
+  if config.execute_repl_with_workspace then
+    local file_name = vim.api.nvim_buf_get_name(current_bufnr)
+    local file_dir = vim.fn.fnamemodify(file_name, ":h")
+
+    cmd = table.concat(cmd, " ")
+    if file_dir ~= "" then
+      cmd = "cd " .. vim.fn.shellescape(file_dir) .. " && " .. cmd
+    end
+  end
   local job_id = vim.fn.termopen(cmd, opts)
 
   return {
