@@ -16,6 +16,7 @@ local values = {
   highlight_last = "IronLastSent",
   visibility = require("iron.visibility").toggle,
   scope = require("iron.scope").path_based,
+  execute_repl_with_workspace = false,
   scratch_repl = false,
   close_window_on_exit = true,
   preferred = setmetatable({}, {
